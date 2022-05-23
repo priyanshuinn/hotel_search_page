@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shotcut icon" href="#" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&family=Smooch&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Travel Place</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <form
+          action="#"
+          autocomplete="on"
+          id="search_form"
+          onsubmit="submit_form(event)"
+        >
+          <div class="place">
+            <input
+              type="text"
+              placeholder="Search your place"
+              class="border-2"
+              list="place_list"
+              name="place"
+              required
+            />
+            <div class="w-2"><datalist id="place_list"> </datalist></div>
+          </div>
+          <div class="checkbox">
+            <label for="date-flexible">Are you flexible with date</label>
+            <input
+              type="checkbox"
+              id="date-flexible"
+              name="flexible"
+              onclick="enable_daterange()"
+            />
+          </div>
+          <div id="date_month" class="hidden">
+            <label for="checkin_month">Month</label>
+            <input
+              type="month"
+              id="checkin_month"
+              name="month"
+              placeholder="select month"
+              oninput="check_month()"
+            />
+          </div>
+          <div id="dates" class="date-flex">
+            <div class="date-box">
+              <input type="date" id="checkin_date" name="checkin" oninput="check_in_date()"/>
+            </div>
+            <p>-</p>
+            <div class="date-box">
+              <input type="date" id="checkout_date" name="checkout" oninput="check_out_date()"/>
+            </div>
+          </div>
+          <div id="add_more_room">
+            <div id="room1" class="add_room">
+              <label for="room1">Room 1</label>
+              <div class="flex-1">
+                <div class="adult">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <input
+                    type="number"
+                    id="no_of_adults1"
+                    placeholder="No. of Adults"
+                    min="1"
+                    value="1"
+                    name="room_1_adult"
+                  />
+                  <button
+                    type="button"
+                    onclick="increment('no_of_adults1')"
+                    value="fefe"
+                  >
+                    +
+                  </button>
+                  <button type="button" onclick="decrement('no_of_adults1')">
+                    -
+                  </button>
+                </div>
+                <div class="adult">
+                  <i class="fa fa-child" aria-hidden="true"></i>
+                  <input
+                    type="number"
+                    id="no_of_children1"
+                    placeholder="No. of Children"
+                    min="0"
+                    value="0"
+                    name="room_1_children"
+                  />
+                  <button type="button" onclick="increment('no_of_children1')">
+                    +
+                  </button>
+                  <button type="button" onclick="decrement('no_of_children1')">
+                    -
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-delete">
+            <div>
+              <button type="button" onclick="add_room()">Add Room</button>
+            </div>
+            <div id="delete">
+              <button type="button" onclick="remove()">Delete Room</button>
+            </div>
+          </div>
+          <div class="submit">
+            <button class="border-2" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
